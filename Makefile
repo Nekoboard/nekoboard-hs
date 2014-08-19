@@ -14,7 +14,7 @@ sketch.cpp: copilot.h
 
 copilot.c copilot.h: codegen
 
-LOCAL_OBJS := $(filter-out %/copilot.o, $(LOCAL_OBJS)) $(OBJDIR)/copilot.o
+LOCAL_OBJS := $(sort $(OBJDIR)/copilot.o $(LOCAL_OBJS))
 $(TARGET_ELF): $(LOCAL_OBJS)
 
 codegen: copilot-spec.hs clean-codegen
